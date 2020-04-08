@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+        integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" 
+        crossorigin="anonymous">
+    <title>Employee Services</title>
+</head>
+<body>
+    <div id = "container">
+        <header id = "header-root">
+            
+            <!-- Headers will be inserted here -->
+
+        </header>
+
+        <div id = "wrapper">
+            <section id = "left">
+                <div class = "search-navigation">
+                    <ul>
+                        <li><a class = "search-type-active" href = "#">Basic Searck</%fullNameEN%></li>
+                        <li><a class = "search-type-inactive" href = "#">Advanced Search</a></li>
+                    </ul>
+                </div>
+                <div class = "search-container">
+                    <form class = "search-wrapper">
+                        <i class="search-icon fas fa-search"></i>
+                        <input id = "people-search-input" type = "search" class = "search-input" placeholder="John Smith / Джон Смит"/>
+                        <input id = "people-search-button" type = "button" value = "Search" class = "search-button"/>
+                    </form>
+                </div>
+            </section>
+            
+            <section id = "right">
+                <div class = "article-navigation">
+                    <p id = "employees-count"></p>
+                    <div class = "view-type">
+                        <a href = "#" id = "display_block" class = "view-type-active-block"><i class="fas fa-th-large"></i></a>
+                        <a href = "#" id = "display_inline"><i class="fas fa-th-list"></i></a>
+                    </div>
+                </div>
+                <div id = 'employees-pages-id' class = "employees-pages">
+
+                    <!-- Template (id = "block-style") will be inserted here -->
+                    <!-- Template (id = "inline-style-navigation") will be inserted here -->
+                    <!-- Template (id = "inline-style") will be inserted here -->
+                
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+
+
+    <!-- Header template for user -->
+    <script id = "user-header" type="text/template">
+        <div class = "logo-wrapper">
+            <div class = "logo">Leverx Group</div>
+            <div class = "page-name">Employee Services</div>
+        </div>
+        <nav>
+            <ul>
+                <li><a class = "nav-link-active" href = "index.html">Address Book</a></li>
+                <li><a class = "nav-link-inactive" href = "#">Leave Requests</a></li>
+            </ul>
+        </nav>
+        <div class = "user-account">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <img src = "<%image%>" id = "user-photo" class = "account-image">
+            <a class = "user-account-link" id = "user-link" href="#"><%fullNameEN%></a>
+            <a class = "logout" id = "log-out" href="#"><i class="fas fa-sign-out-alt"></i></a>
+        </div>
+    </script>
+
+    <!-- Header template for admin -->
+    <script id = "admin-header" type="text/template">
+        <div class = "logo-wrapper">
+            <div class = "logo">Leverx Group</div>
+            <div class = "page-name">Employee Services</div>
+        </div>
+        <nav>
+            <ul>
+                <li><a class = "nav-link-active" href = "index.html">Address Book</a></li>
+                <li><a class = "nav-link-inactive" id = "create-account" href = "#">Create Account</a></li>
+                <li><a class = "nav-link-inactive" id = "open-admin" href = "#">Settings</a></li>
+            </ul>
+        </nav>
+        <div class = "user-account">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <img src = "<%image%>" id = "user-photo" class = "account-image">
+            <a class = "user-account-link" id = "user-link" href="#"><%fullNameEN%></a>
+            <a class = "logout" id = "log-out" href="#"><i class="fas fa-sign-out-alt"></i></a>
+        </div>
+    </script>
+
+
+    <!-- Template for block display users -->
+    <script id = "block-style" type="text/template">
+        <div class = "user-card-block" data-btn = "profile"  data-id = "<%id%>">
+            <div class = "user-image-block" data-btn = "profile" data-id = "<%id%>">
+                <img src = "<%img%>" id = "img-id" class = "user-face-block" data-btn = "profile"  data-id = "<%id%>"/>
+            </div>
+            <div class = "data-en-block" data-btn = "profile" data-id = "<%id%>">
+                <span id = "full-name-en" class="full-name"><%fullNameEN%></span>
+            </div>
+            <div class = "data-ru-block">
+                <span id = "full-name-ru" class="full-name"><%fullNameRU%></span>
+            </div>
+            <hr>
+            <div class = "user-footer-block" data-btn = "profile" data-id = "<%id%>">
+                <div class="department">
+                    <i class="fas fa-briefcase"></i>
+                    <span id = "department-id"><%department%></span>
+                </div>
+                <div class="room">
+                    <i class="fas fa-door-closed"></i>
+                    <span id = "room-id"><%room%></span>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <!-- Template for inline display users -->
+    <script id = "inline-style" type="text/template">
+        <div class = "user-wrapper-inline wrapper-margin-top"  data-btn = "profile" data-id = "<%id%>">
+            <img class = "user-image-inline" src = "<%img%>" data-btn = "profile" data-id = "<%id%>"/>
+            <div class = "user-name-inline" data-btn = "profile">
+                <div class = "data-en-inline">
+                    <span class="full-name"><%fullNameEN%></span>
+                </div>
+                <div class = "data-ru-inline">
+                    <span class="full-name"><%fullNameRU%></span>
+                </div>
+            </div>
+            <div class = "user-department-inline">
+                <span><%department%></span>
+            </div>
+            <div class = "user-room-inline">
+                <span><%room%></span>
+            </div>
+        </div>
+    </script>
+
+    <!-- Panel with headers for inline display -->
+    <template id = "inline-style-navigation">
+        <div class = "user-wrapper-inline wrapper-margin-bottom">
+            <div class = "user-photo-inline">
+                <i class="fas fa-dot-circle"></i>
+                <span>Photo</span>
+            </div>
+            <div class = "user-name-inline">
+                <i class="fas fa-user"></i>
+                <span>Name</span>
+            </div>
+            <div class = "user-department-inline">
+                <i class="fas fa-briefcase"></i>
+                <span>Department</span>
+            </div>
+            <div class = "user-room-inline">
+                <i class="fas fa-door-closed"></i>
+                <span>Room</span>
+            </div>
+        </div>
+    </template>
+
+    <!-- Template Login Form -->
+    <template id = "template-authorization">
+        <div id = "login-wrapper">
+            <div class="login-content">
+                <div class="background">
+                    <img src="images/background.svg">
+                </div>
+                <form id = "login-form">
+                    <img src="images/pic.svg">
+                    <h2 class="title">Welcome</h2>
+                       <div class="input-div one">
+                          <div class="i">
+                                  <i class="fas fa-user"></i>
+                          </div>
+                          <div class="div">
+                                  <h5>Email</h5>
+                                  <input type="email" id = "email" class="input" required/>
+                          </div>
+                       </div>
+                       <div class="input-div pass">
+                          <div class="i"> 
+                               <i class="fas fa-lock"></i>
+                          </div>
+                          <div class="div">
+                               <h5>Password</h5>
+                               <input type="password" id = "password" class="input" required/>
+                       </div>
+                    </div>
+                    <input type="submit" id = "butt" class="btn" value="Login">
+                </form>
+            </div>
+        </div>
+    </template>
+
+    <!-- Admin header -->
+    <script id = "admin-panel-header" type="text/template">
+        <div class = "admin-panel-title">
+            <span>ROLES & PERMISSIONS</span>
+        </div>
+       
+        <div class = "admin-panel-card">
+            <div class = "user-wrapper-inline alternate-color"  data-btn = "profile">                 
+                <form class = "admin-search-wrapper">
+                    <i class="search-icon fas fa-search"></i>
+                    <input id = "people-search-input" type = "search" class = "search-input admin-search" placeholder="John Smith / Джон Смит"/>
+                <!-- <input id = "people-search-button" type = "button" value = "Search" class = "search-button"/> -->
+                </form>
+                <div class = "column-names">
+                    <span>Address book role</span>
+                    <span>Vacation Role</span>
+                    <span>Admin</span>
+                </div>     
+                
+            </div>
+            <%insertUsers%>
+        </div>
+    </script>
+
+    <!-- Template for displaying users in admin panel -->
+    <script id = "admin-panel-user" type="text/template">
+        <div class = "user-wrapper-inline alternate-color"  data-btn = "profile" data-id = "<%id%>">
+            <img class = "user-image-inline" src = "<%image%>" data-btn = "profile" data-id = "<%id%>"/>
+            <div class = "user-name-inline" data-btn = "profile" data-id = "<%id%>">
+                <div class = "data-en-inline">
+                    <span class="full-name"><%fullNameEN%></span>
+                </div>
+                <div class = "data-ru-inline">
+                    <span class="full-name"><%fullNameRU%></span>
+                </div>
+            
+            </div>
+            <div class = "user-role-buttons">    
+                    <div class = "address-book-role">
+                        <button class = "<%employee%>">Employee</button>
+                        <button class = "<%hr%>">HR</li>
+                    </div>
+
+                    <div class = "vacation-role">
+                        <button class = "<%user%>" data-id = "<%id%>" data-role = "user">User</button>
+                        <button>PO</button>
+                        <button class = "<%editor%>" data-id = "<%id%>" data-role = "editor">DD</button>
+                    </div>
+
+                    <div class = "admin-role">
+                        <button class = "<%admin%>">Admin</button>
+                    </div>         
+            </div>
+        </div>
+    </script>
+
+    <!-- Template for display extended information -->
+    <script id = "profile-page-template" type="text/template">
+        <div class = "profile-left">
+            <a href = "./index.html" class = "profile-back-arrow"><i class="fas fa-angle-left"></i></a>
+            <div class = "user-image-block">
+                <i class="fas fa-cannabis photo-icon"></i>
+                <img src = "<%img%>" class = "user-face-block user-face-profile"/>
+            </div>
+            <div class = "full-name-block">
+                <div class = "profile-gender">
+                    <span><%gender%></span>
+                </div>
+                <div class = "data-en-block">
+                    <span class="full-name"><%fullNameEN%></span>
+                </div>
+                <div class = "data-ru-block">
+                    <span class="full-name"><%fullNameRU%></span>
+                </div>
+            </div>
+            <div class = "profile-left-buttons">
+                <a href = "#" class = "left-buttons left-button-id"><i class="fas fa-id-card"></i><%id%></a>
+                <a href = "#" class = "left-buttons left-button-card"><i class="far fa-credit-card"></i>Business cars</a>
+            </div>
+        </div>
+    </script>
+
+
+
+    <script id = "profile-info-template" type="text/template">
+
+        <div class = "main-info">
+            <div class = "main-info-section">
+                <div class = "main-info-title">
+                    <div id = "edit-details-top" class = "edit-link-align">
+                        <span><h4>General Info</h4></span>
+                        <!-- <a href = "#" class = "main-info-edit">Edit Details</a> -->
+                    </div>
+                    <hr>
+                </div>
+                <div class = "main-info-body">
+                    <div>
+                        <i class="fas fa-briefcase"></i>
+                        <span class = "line-title">Department</span>
+                    </div>
+                    <div>
+                        <span ><%department%></span>
+                    </div>
+                    <div>
+                        <i class="fas fa-door-closed"></i>
+                        <span class = "line-title">Room</span>
+                    </div>
+                    <div>
+                        <span ><%room%></span>    
+                    </div>         
+                </div>
+            </div>
+
+            <div class = "main-info-section">
+                <div class = "main-info-title title-without-buttons">
+                    <span><h4>Contact</h4></span>
+                    <hr>
+                </div>
+                <div class = "main-info-body">
+                    <div>
+                        <i class="fas fa-mobile"></i>
+                        <span class = "line-title">Internal phone</span>
+                    </div>
+                    <div>
+                        <span ><%internal_phone%></span>
+                    </div>
+                    <div>
+                        <i class="fas fa-mobile-alt"></i>
+                        <span class = "line-title">Mobile phone</span>
+                    </div>
+                    <div>
+                        <span ><%mobile_phone%></span>
+                    </div>
+                    <div>
+                        <i class="fas fa-at"></i>
+                        <span class = "line-title">Email</span>
+                    </div>
+                    <div>
+                        <span ><%email%></span>
+                    </div>
+                    <div>
+                        <i class="fab fa-skype"></i>
+                        <span class = "line-title">Skype ID</span>
+                    </div>
+                    <div>
+                        <span ><%skype%></span>
+                    </div>
+                    <div>
+                        <i class="fab fa-keycdn"></i>
+                        <!-- <i class="fas fa-key"></i> -->
+                        <span class = "line-title">C-number</span>
+                    </div>
+                    <div>
+                        <span ><%c_number%></span>  
+                    </div>
+                </div>
+            </div>
+            <div id = "edit-details-bottom" class = "edit-link-align edit-bottom">
+                <!-- <a href = "#" class = "main-info-edit">Edit Details</a> -->
+            </div>
+        </div>
+
+    </script>
+
+    <!-- Create new Account -->
+    <script id = "create-user-profile" type="text/template">
+        <form id = "create-account-form">
+            <div class = "profile-left">
+                <a href = "./index.html" class = "profile-back-arrow"><i class="fas fa-angle-left"></i></a>
+                <div class = "user-image-block">
+                    <i class="fas fa-cannabis photo-icon"></i>
+                    <img src = "images/default.jpg" class = "user-face-block user-face-profile"/>
+                </div>
+                <div class = "edit-name-block">
+                    <div>
+                        <input name="gender" placeholder="Gender"/>
+                    </div>
+                    <div>
+                        <input name="firstName_EN" placeholder="First Name (EN)"/>
+                        <input name="lastName_EN" placeholder="Last Name (EN)">
+                    </div>
+                    <div >
+                        <input name="firstName_RU" placeholder="First Name (RU)"/>
+                        <input name="lastName_RU" placeholder="Last Name (RU)"/>
+                        <input name="patronym_RU" placeholder="Patronym (RU)"/>
+                        <input name="role" placeholder="Role"/>
+                        <input name="worker_type" placeholder="Worker Type"/>
+                        <input name="password" type="number" placeholder="Password"/>
+                    </div>
+                </div>
+                <div class = "profile-left-buttons">
+                    <!-- <a href = "#" class = "left-buttons left-button-id"><i class="fas fa-id-card"></i><%id%></a>
+                    <a href = "#" class = "left-buttons left-button-card"><i class="far fa-credit-card"></i>Business cars</a> -->
+                    <input class = "left-buttons" type="submit" value="Submit" />
+                </div>
+            </div>
+        </form>
+    </script>
+
+    <script id = "create-user-info" type="text/template">
+        <div class = "main-info">
+            <div class = "main-info-section">
+                <div class = "main-info-title">
+                    <div class = "edit-link-align">
+                        <span><h4>General Info</h4></span>
+                        <a href = "#" class = "main-info-edit">Apply</a>
+                    </div>
+                    <hr>
+                </div>
+                <div class = "main-info-body">
+                    <div>
+                        <i class="fas fa-briefcase"></i>
+                        <span class = "line-title">Department</span>
+                    </div>
+                    <div>
+                        <input  placeholder = "Department">
+                    </div>
+                    <div>
+                        <i class="fas fa-door-closed"></i>
+                        <span class = "line-title">Room</span>
+                    </div>
+                    <div>
+                        <input  placeholder="Room">    
+                    </div>         
+                </div>
+            </div>
+        
+            <div class = "main-info-section">
+                <div class = "main-info-title title-without-buttons">
+                    <span><h4>Contact</h4></span>
+                    <hr>
+                </div>
+                <div class = "main-info-body">
+                    <div>
+                        <i class="fas fa-mobile"></i>
+                        <span class = "line-title">Internal phone</span>
+                    </div>
+                    <div>
+                        <input  placeholder="Internal phone">
+                    </div>
+                    <div>
+                        <i class="fas fa-mobile-alt"></i>
+                        <span class = "line-title">Mobile phone</span>
+                    </div>
+                    <div>
+                        <input  placeholder="Mobile phone">
+                    </div>
+                    <div>
+                        <i class="fas fa-at"></i>
+                        <span class = "line-title">Email</span>
+                    </div>
+                    <div>
+                        <input  type = "email" placeholder="Email">
+                    </div>
+                    <div>
+                        <i class="fab fa-skype"></i>
+                        <span class = "line-title">Skype ID</span>
+                    </div>
+                    <div>
+                        <input  placeholder="Skype">
+                    </div>
+                    <div>
+                        <i class="fab fa-keycdn"></i>
+                        <!-- <i class="fas fa-key"></i> -->
+                        <span class = "line-title">C-number</span>
+                    </div>
+                    <div>
+                        <input  placeholder="C-Number">  
+                    </div>
+                </div>
+            </div>
+            <div class = "edit-link-align edit-bottom">
+                <a href = "#" class = "main-info-edit">Apply</a>
+            </div>
+        </div>
+    </script>
+
+
+    <!-- Profile Edit page -->
+    <script id = "open-edit-profile" type="text/template">
+        <div class = "profile-left">
+            <div class = "edit-warning-block">
+            <a href = "./index.html" class = "profile-back-arrow"><i class="fas fa-angle-left"></i></a>
+            <div class = "user-image-block">
+                <i class="fas fa-cannabis photo-icon"></i>
+                <img src = "<%image%>" class = "user-face-block user-face-profile"/>
+            </div>
+                
+                <p class = "edit-warning">
+                    Welcome to the page for editing user information, be careful.
+                </p>
+                <p class = "edit-warning">
+                    Сhanges will be sent to the database and will immediately appear on the site. 
+                </p>
+                <p class = "edit-warning">
+                    Do not edit user information unnecessarily.
+                </p>
+                
+            <div class = "profile-left-buttons">
+                <a href = "#" class = "left-buttons left-button-id"><i class="fas fa-id-card"></i>ID <%id%></a>
+                <a href = "#" class = "left-buttons left-button-card"><i class="far fa-credit-card"></i>Business cars</a>
+            </div>
+        </div>
+        </div>
+    </script>
+
+    <script id = "open-edit-info" type ="text/template">
+        <form id = "edit-profile-form">
+            <div class = "main-info">
+                <div class = "main-info-section">
+                    <div class = "main-info-title">
+                        <div class = "edit-link-align">
+                            <span><h4>Passport Info</h4></span>
+                            <a href = "#" class = "main-info-edit">Apply</a>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class = "main-info-body">
+                        <div>
+                            <i class="fas fa-user"></i>
+                            <span class = "line-title">First Name (EN)</span>
+                        </div>
+                        <div>
+                            <input name="firstName_EN" placeholder="First Name (EN)" value = "<%firstName_EN%>"/>
+                        </div>
+                        <div>
+                            <i class="fas fa-user"></i>
+                            <span class = "line-title">Last Name (EN)</span>
+                        </div>
+                        <div>
+                            <input name="lastName_EN" placeholder="Last Name (EN)" value = "<%lastName_EN%>"/>
+                        </div>   
+                        <div>
+                            <i class="fas fa-user"></i>
+                            <span class = "line-title">First Name (RU)</span>
+                        </div>
+                        <div>
+                            <input name="firstName_RU" placeholder="First Name (RU)" value = "<%firstName_RU%>"/>
+                        </div>
+                        <div>
+                            <i class="fas fa-user"></i>
+                            <span class = "line-title">Last Name (RU)</span>
+                        </div>
+                        <div>
+                            <input name="lastName_RU" placeholder="Last Name (RU)" value = "<%lastName_RU%>">
+                        </div>      
+                        
+                        <div>
+                            <i class="fas fa-user"></i>
+                            <span class = "line-title">Patronym (RU)</span>
+                        </div>
+                        <div>
+                            <input name="patronym_RU" placeholder="Patronym (RU)" value = "<%patronym_RU%>">
+                        </div>   
+                        <div>
+                            <i class="fas fa-user"></i>
+                            <span class = "line-title">Gender</span>
+                        </div>
+                        <div>
+                            <input name="gender" placeholder="Gender" value = "<%gender%>">
+                        </div>    
+                        <div>
+                            <i class="fas fa-user-tie"></i>
+                            <span class = "line-title">Worker Type</span>
+                        </div>
+                        <div>
+                            <input name="worker_type" placeholder="Worker Type" value = "<%worker_type%>">
+                        </div>   
+                    </div>
+                </div>
+            
+                    <div class = "main-info-section">
+                        <div class = "main-info-title title-without-buttons">
+                            <span><h4>Profile Info</h4></span>
+                            <hr>
+                        </div>
+                        <div class = "main-info-body">
+                            <div>
+                                <i class="fas fa-user-tag"></i>
+                                <span class = "line-title">Role</span>
+                            </div>
+                            <div>
+                                <input name="role"  placeholder="Role" value = "<%role%>"/>
+                            </div>  
+                            <div>
+                                <i class="fas fa-user-shield"></i>
+                                <span class = "line-title">Password</span>
+                            </div>
+                            <div>
+                                <input name="password"   placeholder="Password" value = "<%password%>"/>
+                            </div>        
+                        </div>
+                    </div>
+
+                    <div class = "main-info-section">
+                        <div class = "main-info-title title-without-buttons">
+                            <span><h4>General Info</h4></span>
+                            <hr>
+                        </div>
+                        <div class = "main-info-body">
+                            <div>
+                                <i class="fas fa-briefcase"></i>
+                                <span class = "line-title">Department</span>
+                            </div>
+                            <div>
+                                <input name = "department"  placeholder = "Department" value = "<%department%>"/>
+                            </div>
+                            <div>
+                                <i class="fas fa-door-closed"></i>
+                                <span class = "line-title">Room</span>
+                            </div>
+                            <div>
+                                <input name = "room"  placeholder="Room" value = "<%room%>"/>    
+                            </div>         
+                        </div>
+                    </div>
+
+                    <div class = "main-info-section">
+                        <div class = "main-info-title title-without-buttons">
+                            <span><h4>Contact</h4></span>
+                            <hr>
+                        </div>
+                        <div class = "main-info-body">
+                            <div>
+                                <i class="fas fa-mobile"></i>
+                                <span class = "line-title">Internal phone</span>
+                            </div>
+                            <div>
+                                <input name = "internal_phone"  placeholder="Internal phone" value = "<%internal_phone%>"/>
+                            </div>
+                            <div>
+                                <i class="fas fa-mobile-alt"></i>
+                                <span class = "line-title">Mobile phone</span>
+                            </div>
+                            <div>
+                                <input name = "mobile_phone"  placeholder="Mobile phone" value = "<%mobile_phone%>">
+                            </div>
+                            <div>
+                                <i class="fas fa-at"></i>
+                                <span class = "line-title">Email</span>
+                            </div>
+                            <div>
+                                <input name = "email"  placeholder="Email" value = "<%email%>"/>
+                            </div>
+                            <div>
+                                <i class="fab fa-skype"></i>
+                                <span class = "line-title">Skype ID</span>
+                            </div>
+                            <div>
+                                <input name = "skype"  placeholder="Skype" value = "<%skype%>"/>
+                            </div>
+                            <div>
+                                <i class="fab fa-keycdn"></i>
+                                <!-- <i class="fas fa-key"></i> -->
+                                <span class = "line-title">C-number</span>
+                            </div>
+                            <div>
+                                <input name = "c_number"  placeholder="C-Number" value = "<%c_number%>"/>  
+                            </div>
+                        </div>
+                    </div>
+
+                <div class = "edit-link-align edit-bottom">
+                    <a href = "#" class = "main-info-edit">Apply</a>
+                </div>
+                <input class = "left-buttons" type="submit" value="Submit" />
+            </div>
+        </form>
+    </script>
+
+    <script src = "modules.js"></script>
+    <script src = "main.js"></script>
+</body>
+</html>
