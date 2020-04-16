@@ -1,5 +1,4 @@
 import React from 'react'
-import { Redirect } from 'react-router-dom'
 
 const Authentication = (props) => {
 
@@ -18,7 +17,7 @@ const Authentication = (props) => {
                         </div>
                         <div className="div">
                             <h5>Email</h5>
-                            <input name="email" type="email" id="email" className="input" required />
+                            <input name="email" type="email" id="email" className="input" value={props.searchValue.email} onChange={props.handleChange} required />
                         </div>
                     </div>
                     <div className="input-div pass">
@@ -27,7 +26,7 @@ const Authentication = (props) => {
                         </div>
                         <div className="div">
                             <h5>Password</h5>
-                            <input name="password" type="password" id="password" className="input" required />
+                            <input name="password" type="password" id="password" className="input" value={props.searchValue.password} onChange={props.handleChange} required />
                         </div>
                     </div>
                     <input type="submit" id="butt" className="btn" value="Login" />

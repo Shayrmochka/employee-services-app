@@ -5,13 +5,13 @@ const CreateAccount = () => {
     return (
         <section id="left">
             <form id="create-account-form">
-                <div class="profile-left">
-                    <a href="./index.html" class="profile-back-arrow"><i class="fas fa-angle-left"></i></a>
-                    <div class="user-image-block">
-                        <i class="fas fa-cannabis photo-icon"></i>
-                        <img src="images/default.jpg" class="user-face-block user-face-profile" />
+                <div className="profile-left">
+                    <a href="./index.html" className="profile-back-arrow"><i className="fas fa-angle-left"></i></a>
+                    <div className="user-image-block">
+                        <i className="fas fa-cannabis photo-icon"></i>
+                        <img src="images/default.jpg" className="user-face-block user-face-profile" />
                     </div>
-                    <div class="edit-name-block">
+                    <div className="edit-name-block">
                         <div>
                             <input name="gender" placeholder="Gender" />
                         </div>
@@ -28,8 +28,8 @@ const CreateAccount = () => {
                             <input name="password" type="number" placeholder="Password" />
                         </div>
                     </div>
-                    <div class="profile-left-buttons">
-                        <input class="left-buttons" type="submit" value="Submit" />
+                    <div className="profile-left-buttons">
+                        <input className="left-buttons" type="submit" value="Submit" />
                     </div>
                 </div>
             </form>

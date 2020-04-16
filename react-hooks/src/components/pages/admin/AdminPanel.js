@@ -17,18 +17,18 @@ const AdminPanel = (props) => {
                 </div>
                 <div className="user-role-buttons">
                     <div className="address-book-role">
-                        <button className="<%employee%>">Employee</button>
-                        <button className="<%hr%>">HR</button>
+                        <button>Employee</button>
+                        <button>HR</button>
                     </div>
 
                     <div className="vacation-role">
-                        <button className="<%user%>" data-id="<%id%>" data-role="user">User</button>
+                        <button>User</button>
                         <button>PO</button>
-                        <button className="<%editor%>" data-id="<%id%>" data-role="editor">DD</button>
+                        <button>DD</button>
                     </div>
 
                     <div className="admin-role">
-                        <button className="<%admin%>">Admin</button>
+                        <button>Admin</button>
                     </div>
                 </div>
             </div>

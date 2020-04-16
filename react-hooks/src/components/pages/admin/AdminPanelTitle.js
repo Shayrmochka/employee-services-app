@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AdminPanelTitle = () => {
+export const AdminPanelTitle = () => {
 
     return (
             <div className="admin-panel-title">
@@ -8,5 +8,3 @@ const AdminPanelTitle = () => {
             </div>
     )
 }
-
-export default AdminPanelTitle

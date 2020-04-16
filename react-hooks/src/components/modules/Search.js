@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Search = (props) => {
-    
+export const Search = (props) => {
+
     return (
-        <div>
+        <>
             <div className="search-navigation">
                 <ul>
                     <li><a className="search-type-active" href="#">Basic Searck></a></li>
@@ -17,8 +17,6 @@ const Search = (props) => {
                     <input id="people-search-button" type="submit" value="Search" className="search-button" />
                 </form>
             </div>
-        </div>
+        </>
     )
 }
-
-export default Search

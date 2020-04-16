@@ -1,14 +1,14 @@
 import React, {useState, useEffect} from 'react'
 import {fetchData} from '../api/api'
-import NavViewType from '../modules/NavViewType'
-import SearchContainer from '../modules/SearchContainer'
+import { NavViewType } from '../modules/NavViewType'
+import { SearchContainer } from '../modules/SearchContainer'
 import StyleContainer from './view-style/StyleContainer'
 
 
 const MainPage = (props) => {
 
     const [users, setUsers] = useState([])
-    const [allUsers, setAllUsers] = useState()
+    const [allUsers, setAllUsers] = useState([])
     const [displayStyle, setDisplayStyle] = useState('block')
 
     useEffect(() => {

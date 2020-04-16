@@ -1,26 +1,15 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { HeaderNav } from './HeaderNav'
 
-const Header = () => {
+export const Header = () => {
 
-    const checkRole = () => {
-        if (JSON.parse(localStorage.getItem('user')).role === 'admin') {
-            
-            return (
-                <ul>
-                    <li><Link className="nav-link-active" to="/index">Address Book</Link></li>
-                    <li><Link className="nav-link-inactive" id="create-account" to="/create">Create Account</Link></li>
-                    <li><Link className="nav-link-inactive" id="open-admin" to="/admin">Settings</Link></li>
-                </ul>
-            )
-        } else {
-            return (
-                <ul>
-                    <li><Link className="nav-link-active" to="/index">Address Book</Link></li>
-                </ul>
-            )
+    const [user, setUser] = useState('')
+
+    useEffect(() => {
+        if (localStorage.getItem('user')) {
+            setUser(JSON.parse(localStorage.getItem('user')))
         }
-    }
+    }, [])
 
     return (
         <header id="header-root">
@@ -28,8 +17,8 @@ const Header = () => {
                 <div className="logo">Leverx Group</div>
                 <div className="page-name">Employee Services</div>
             </div>
-            <nav>
-                {checkRole()}
+            <nav>  
+                <HeaderNav user={user} />
             </nav>
             <div className="user-account">
                 <a href="#"><i className="fab fa-github"></i></a>
@@ -40,5 +29,3 @@ const Header = () => {
         </header>
     )
 }
-
-export default Header

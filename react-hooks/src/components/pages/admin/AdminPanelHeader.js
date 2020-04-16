@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AdminPanelHeader = () => {
+export const AdminPanelHeader = () => {
 
     return (
         <div className="user-wrapper-inline alternate-color">
@@ -16,5 +16,3 @@ const AdminPanelHeader = () => {
         </div>
     )
 }
-
-export default AdminPanelHeader

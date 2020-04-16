@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ProfilePageLeft = (props) => {
+export const ProfilePageLeft = (props) => {
     console.log(props)
     return (
         <div className="profile-left">
@@ -27,6 +27,3 @@ const ProfilePageLeft = (props) => {
         </div>
     )
 }
-
-
-export default ProfilePageLeft

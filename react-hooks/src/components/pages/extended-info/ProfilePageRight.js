@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ProfilePageRight = (props) => {
+export const ProfilePageRight = (props) => {
 
     return (
         <div className="main-info">
@@ -80,6 +80,3 @@ const ProfilePageRight = (props) => {
         </div>
     )
 }
-
-
-export default ProfilePageRight

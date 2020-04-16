@@ -1,6 +1,6 @@
 import React from 'react'
 
-const NavViewType = (props) => {
+export const NavViewType = (props) => {
 
     return (
         <div className="article-navigation">
@@ -12,5 +12,3 @@ const NavViewType = (props) => {
         </div>
     )
 }
-
-export default NavViewType

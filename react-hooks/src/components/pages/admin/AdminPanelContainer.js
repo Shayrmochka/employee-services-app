@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { fetchData } from '../../api/api'
 import AdminPanel from './AdminPanel'
-import AdminPanelTitle from './AdminPanelTitle'
-import AdminPanelHeader from './AdminPanelHeader'
+import { AdminPanelTitle } from './AdminPanelTitle'
+import { AdminPanelHeader } from './AdminPanelHeader'
 
 const AdminPanelContainer = () => {
 

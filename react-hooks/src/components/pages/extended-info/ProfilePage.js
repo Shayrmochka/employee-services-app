@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { fetchData } from '../../api/api'
-import ProfilePageLeft from './ProfilePageLeft'
-import ProfilePageRight from './ProfilePageRight'
+import { ProfilePageLeft } from './ProfilePageLeft'
+import { ProfilePageRight } from './ProfilePageRight'
 import { useParams } from 'react-router-dom'
 
 const ProfilePage = () => {
